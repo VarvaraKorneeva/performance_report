@@ -6,11 +6,25 @@
 - В параметре `--report` передается название отчета. В данном случае реализован только один - 'performance'.
 
 ### Запуск скрипта
-1. Установить зависимости из requirements.txt следующей командой:
+1. Склонировать репозиторий.
+```commandline
+git clone https://github.com/VarvaraKorneeva/performance_report.git
+```
+2. Перейти в папку performance_report, создать и активировать виртуальное окружение.
+```commandline
+cd performance_report
+```
+```commandline
+python -m venv venv
+```
+```commandline
+.\venv\Scripts\activate
+```
+3. Установить зависимости из requirements.txt.
 ```commandline
 pip install -r requirements.txt
 ```
-2. Запустить скрипт с нужными аргументами. Например:
+4. Запустить скрипт с нужными аргументами. Например:
 ```commandline
 python report.py --files data/employees1.csv data/employees2.csv --report performance
 ```
