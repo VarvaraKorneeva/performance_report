@@ -7,25 +7,25 @@ from report import performance_report, get_args, get_report, get_row_number_for_
 
 def test_performance_report_one_file():
     report = performance_report(['data/employees1.csv'])
-    assert report == [('Mobile Developer', 4.6),
-                      ('Backend Developer', 4.85),
+    assert report == [('Backend Developer', 4.85),
                       ('DevOps Engineer', 4.7),
-                      ('Frontend Developer', 4.6),
                       ('Data Engineer', 4.7),
-                      ('QA Engineer', 4.5),
-                      ('Data Scientist', 4.7)]
+                      ('Data Scientist', 4.7),
+                      ('Mobile Developer', 4.6),
+                      ('Frontend Developer', 4.6),
+                      ('QA Engineer', 4.5)]
 
 
 def test_performance_report_few_files():
     report = performance_report(['data/employees1.csv', 'data/employees2.csv'])
-    assert report == [('Mobile Developer', 4.6),
-                      ('Backend Developer', 4.83),
+    assert report == [('Backend Developer', 4.83),
                       ('DevOps Engineer', 4.8),
-                      ('Frontend Developer', 4.65),
                       ('Data Engineer', 4.7),
-                      ('QA Engineer', 4.5),
+                      ('Fullstack Developer', 4.7),
+                      ('Frontend Developer', 4.65),
                       ('Data Scientist', 4.65),
-                      ('Fullstack Developer', 4.7)]
+                      ('Mobile Developer', 4.6),
+                      ('QA Engineer', 4.5)]
 
 
 @pytest.fixture
@@ -105,13 +105,13 @@ def test_output_report(capsys):
     captured = capsys.readouterr()
     assert captured.out == '    position              performance\n' \
                            '--  ------------------  -------------\n' \
-                           ' 1  Mobile Developer             4.6\n' \
-                           ' 2  Backend Developer            4.85\n' \
-                           ' 3  DevOps Engineer              4.7\n' \
-                           ' 4  Frontend Developer           4.6\n' \
-                           ' 5  Data Engineer                4.7\n' \
-                           ' 6  QA Engineer                  4.5\n' \
-                           ' 7  Data Scientist               4.7\n'
+                           ' 1  Backend Developer            4.85\n' \
+                           ' 2  DevOps Engineer              4.7\n' \
+                           ' 3  Data Engineer                4.7\n' \
+                           ' 4  Data Scientist               4.7\n' \
+                           ' 5  Mobile Developer             4.6\n' \
+                           ' 6  Frontend Developer           4.6\n' \
+                           ' 7  QA Engineer                  4.5\n'
 
 
 def test_get_row_number_for_report():

@@ -47,6 +47,8 @@ def performance_report(files):
     for key, value in position_count.items():
         performance_avg.append((key, round(value[0]/value[1], 2)))
 
+    performance_avg = sorted(performance_avg, key=lambda efficiency: efficiency[1], reverse=True)
+
     return performance_avg
 
 
